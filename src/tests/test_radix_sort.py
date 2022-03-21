@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from sorting.counting_sort import counting_sort
+from sorting.radix_sort import radix_sort
 import random
 
 def test_small():
@@ -10,7 +10,7 @@ def test_small():
     for _ in range(100):
         arr = [random.randint(0, 9) for _ in range(random.randint(2, 9))]
 
-        arr_sorted = counting_sort(arr)
+        arr_sorted = radix_sort(arr)
 
         arr.sort()
 
@@ -22,7 +22,7 @@ def test_medium():
     for _ in range(100):
         arr = [random.randint(0, 19) for _ in range(random.randint(10, 19))]
 
-        arr_sorted = counting_sort(arr)
+        arr_sorted = radix_sort(arr)
 
         arr.sort()
         assert arr == arr_sorted
@@ -33,7 +33,7 @@ def test_large():
     for _ in range(100):
         arr = [random.randint(0, 29) for _ in range(random.randint(20, 29))]
 
-        arr_sorted = counting_sort(arr)
+        arr_sorted = radix_sort(arr)
 
         arr.sort()
         assert arr == arr_sorted
@@ -44,7 +44,7 @@ def test_huge():
     for _ in range(100):
         arr = [random.randint(0, 100) for _ in range(random.randint(2, 100))]
 
-        arr_sorted = counting_sort(arr)
+        arr_sorted = radix_sort(arr)
 
         arr.sort()
         assert arr == arr_sorted
