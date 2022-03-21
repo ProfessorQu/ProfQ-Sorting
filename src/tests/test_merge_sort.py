@@ -8,14 +8,11 @@ def test_small():
     """Test a small list
     """
     for _ in range(100):
-        arr = [random.randint(0, 9) for _ in range(4)]
+        arr = [random.randint(0, 9) for _ in range(random.randint(2, 9))]
 
         arr_sorted = merge_sort(arr)
 
         arr.sort()
-
-        print(arr_sorted)
-
         assert arr == arr_sorted
 
 def test_medium():

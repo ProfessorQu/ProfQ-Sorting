@@ -13,7 +13,6 @@ def test_small():
         arr_sorted = radix_sort(arr)
 
         arr.sort()
-
         assert arr == arr_sorted
 
 def test_medium():
