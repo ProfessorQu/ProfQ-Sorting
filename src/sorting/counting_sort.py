@@ -3,8 +3,9 @@ sys.path.append("..")
 
 from helpers.max import get_max
 
+
 def counting_sort(arr: list, max_value: int = None, place_value: int = None) -> list:
-    """Sort an list using counting sort
+    """Sort a list using counting sort
 
     Args:
         arr (list): the list to be sorted
@@ -14,6 +15,7 @@ def counting_sort(arr: list, max_value: int = None, place_value: int = None) -> 
     """
     size = len(arr)
 
+    # Get the max value
     if max_value is None:
         max_value = get_max(arr) + 1
 
@@ -23,6 +25,7 @@ def counting_sort(arr: list, max_value: int = None, place_value: int = None) -> 
 
     # Count all the numbers
     for i in range(size):
+        # Calculate the index for radix sort
         index = arr[i]
         if place_value is not None:
             index = (arr[i] // place_value) % 10
@@ -35,6 +38,7 @@ def counting_sort(arr: list, max_value: int = None, place_value: int = None) -> 
 
     # Fill the output array
     for i in range(size - 1, -1, -1):
+        # Calculate the index for radix sort
         index = arr[i]
         if place_value is not None:
             index = (arr[i] // place_value) % 10

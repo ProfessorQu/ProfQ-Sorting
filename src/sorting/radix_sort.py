@@ -1,4 +1,3 @@
-from itertools import count
 import sys
 sys.path.append("..")
 
@@ -6,20 +5,37 @@ from sorting.counting_sort import counting_sort
 from helpers.max import get_max
 
 def radix_sort(arr: list) -> list:
+    """Sort a list using radix sort
+
+    Args:
+        arr (list): the list to be sorted
+
+    Returns:
+        list: the sorted list
+    """
+    # Get the max value
     max_value = get_max(arr)
 
+    # Get the amount of digits (alternate)
+    """
     digits = 1
     while max_value > 0:
         max_value /= 10
         digits += 1
+    """
     
     place_value = 1
-
     output = arr
-    while digits > 0:
+
+    value = max_value
+
+    # Sort the array
+    while value > 0:
+        # Use counting sort
         output = counting_sort(output, 10, place_value)
 
+        # Increase place value and decrease digits
         place_value *= 10
-        digits -= 1
+        value = max_value // place_value
     
     return output
