@@ -1,6 +1,3 @@
-from math import ceil
-
-
 def merge(arr1: list, arr2: list) -> list:
     """Merge two arrays for merge sort
 
