@@ -23,7 +23,7 @@ def partition(arr: list, low: int, high: int) -> int:
 
     return i + 1
 
-def quick_sort(arr: list, low: int, high: int) -> list:
+def quick_sort(arr: list, low: int, high: int):
     if len(arr) == 1:
         return arr
     
