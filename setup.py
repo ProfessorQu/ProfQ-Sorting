@@ -1,8 +1,9 @@
 # sourcery skip: path-read
 from setuptools import setup, find_packages
 
-VERSION = '0.0.2'
+VERSION = '0.1.3'
 DESCRIPTION = 'A library for sorting algorithms.'
+
 
 with open("README.md") as f:
     LONG_DESCRIPTION = f.read()
@@ -14,6 +15,7 @@ setup(
     author="ProfessorQu",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     keywords=['python', 'sorting', 'algorithms'],
     classifiers=[
