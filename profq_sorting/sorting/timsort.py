@@ -6,7 +6,6 @@ def calc_minrun(size: int):
     Args:
         n (int): the number of items in the array
     """
-
     r = 0
     while size >= MIN_MERGE:
         r |= size & 1
@@ -16,7 +15,7 @@ def calc_minrun(size: int):
 
 def insertion_sort(arr: list, left: int, right: int) -> list:
     """Insertion sort from left index to right index
-    Which is at most run_size
+    Which is at most the size of a run
 
     Args:
         arr (list): the array to sort
@@ -26,10 +25,15 @@ def insertion_sort(arr: list, left: int, right: int) -> list:
     Returns:
         list: the sorted list
     """
+    # Loop over all items in a run
     for i in range(left + 1, right + 1):
+        # Set j equal to the current item
         j = i
 
+        # While we haven't reached the end of the array (on the left)
+        # And the item on the right is less than the item on the left
         while j > left and arr[j] < arr[j - 1]:
+            # Swap the items and decrease j
             arr[j], arr[j - 1] = arr[j - 1], arr[j]
             j -= 1
 
@@ -39,35 +43,61 @@ def merge(arr: list, left: int, middle: int, right: int):
 
     Args:
         arr (list): the list to be merged
-        left (int): the left index to 
-        middle (int): _description_
-        right (int): _description_
+        left (int): the left index of the run
+        middle (int): the middle of the run
+        right (int): the right index of the run
     """
-    len1, len2 = middle - left + 1, right - middle
+    # Calculate the length of the left array
+    # index in the middle - the left-most index + 1
+    left_arr_len = middle - left + 1
+    # E.g. with array [0, 1, 2, 3] middle = 2, left = 0
+    # 2 - 0 + 1 = 3 from 0 to 2
+
+    # Calculate the length of the right array
+    # right-most index - index in the middle
+    right_arr_len = right - middle
+    # E.g. with array [0, 1, 2, 3] middle = 2, right = 4
+    # 4 - 2 = 2 from 3 to 4
+
+
+    # Create the left and right arrays
     left_arr, right_arr = [], []
 
-    left_arr.extend(arr[left + i] for i in range(len1))
-    right_arr.extend(arr[middle + i + 1] for i in range(len2))
+    # Add all left items to left array
+    left_arr.extend(arr[left + i] for i in range(left_arr_len))
+    # Add all items from the right to right array
+    right_arr.extend(arr[middle + i + 1] for i in range(right_arr_len))
 
+    # Setup some variables
     l_index, r_index, k = 0, 0, left
 
-    while l_index < len1 and r_index < len2:
-        if left[l_index] <= right[r_index]:
-            arr[k] = left[l_index]
+    # If there are still items left in both arrays
+    # Merge the items
+    while l_index < left_arr_len and r_index < right_arr_len:
+        # If the left array item is less than the right array item
+        if left_arr[l_index] <= right_arr[r_index]:
+            # Set the next available item in the original array to the left item
+            arr[k] = left_arr[l_index]
             l_index += 1
         else:
-            arr[k] = right[r_index]
+            # Set the next available item in the original array to the right item
+            arr[k] = right_arr[r_index]
             r_index += 1
     
+        # Increase the available array index
         k += 1
     
-    while l_index < len1:
-        arr[k] = left[l_index]
+    # If there are just items left in the left array
+    # Add them to the list
+    while l_index < left_arr_len:
+        arr[k] = left_arr[l_index]
         k += 1
         l_index += 1
     
-    while r_index < len2:
-        arr[k] = right[r_index]
+    # If there are just items left in the right array
+    # Add them to the list
+    while r_index < right_arr_len:
+        arr[k] = right_arr[r_index]
         k += 1
         r_index += 1
 
@@ -80,8 +110,21 @@ def timsort(arr: list):
     for start in range(0, size, min_run):
         end = min(start + min_run - 1, size - 1)
         insertion_sort(arr, start, end)
-
+        
     run_size = min_run
     while run_size < size:
         for left in range(0, size, 2 * size):
-            pass
+            # Calculate the middle
+            # Get the minimum between the last array index and the left index + the run size
+            middle = min(size - 1, left + run_size - 1)
+            # Calculate the right
+            # Get the minimum between the last array index and the left index + 2 * the run size
+            # Left index + 2 * run size = the end of the run
+            right = min(left + 2 * run_size - 1, size - 1)
+
+            # Merge sub arrays:
+            # arr[left..middle] & arr[middle+1..right]
+            if middle < right:
+                merge(arr, left, middle, right)
+
+        run_size = 2 * run_size
