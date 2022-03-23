@@ -1,7 +1,7 @@
 # sourcery skip: path-read
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'A library for sorting algorithms.'
 
 with open("README.md") as f:
@@ -9,7 +9,7 @@ with open("README.md") as f:
 
 # Setting up
 setup(
-    name="profq-sorting",
+    name="profq_sorting",
     version=VERSION,
     author="ProfessorQu",
     description=DESCRIPTION,
