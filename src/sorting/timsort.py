@@ -47,29 +47,29 @@ def merge(arr: list, left: int, middle: int, right: int):
     left_arr, right_arr = [], []
 
     left_arr.extend(arr[left + i] for i in range(len1))
-    right_arr.extend(arr[middle + 1 + i] for i in range(len2))
+    right_arr.extend(arr[middle + i + 1] for i in range(len2))
 
-    i, j, k = 0, 0, left
+    l_index, r_index, k = 0, 0, left
 
-    while i < len1 and j < len2:
-        if left[i] <= right[j]:
-            arr[k] = left[i]
-            i += 1
+    while l_index < len1 and r_index < len2:
+        if left[l_index] <= right[r_index]:
+            arr[k] = left[l_index]
+            l_index += 1
         else:
-            arr[k] = right[j]
-            j += 1
+            arr[k] = right[r_index]
+            r_index += 1
     
         k += 1
     
-    while i < len1:
-        arr[k] = left[i]
+    while l_index < len1:
+        arr[k] = left[l_index]
         k += 1
-        i += 1
+        l_index += 1
     
-    while j < len2:
-        arr[k] = right[j]
+    while r_index < len2:
+        arr[k] = right[r_index]
         k += 1
-        j += 1
+        r_index += 1
 
 
 def timsort(arr: list):
