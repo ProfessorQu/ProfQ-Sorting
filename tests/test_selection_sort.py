@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from sorting.shell_sort import shell_sort
+from profq_sorting import selection_sort
 import random
 
 
@@ -12,7 +12,7 @@ def test():
         arr_sorted = [random.randint(-100, 100) for _ in range(random.randint(2, 100))]
         arr = arr_sorted.copy()
 
-        shell_sort(arr_sorted)
+        selection_sort(arr_sorted)
 
         arr.sort()
         assert arr == arr_sorted

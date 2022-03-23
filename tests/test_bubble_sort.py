@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from sorting.insertion_sort import insertion_sort
+from profq_sorting import bubble_sort
 import random
 
 
@@ -12,7 +12,7 @@ def test():
         arr_sorted = [random.randint(-100, 100) for _ in range(random.randint(2, 100))]
         arr = arr_sorted.copy()
 
-        insertion_sort(arr_sorted)
+        bubble_sort(arr_sorted)
 
         arr.sort()
         assert arr == arr_sorted

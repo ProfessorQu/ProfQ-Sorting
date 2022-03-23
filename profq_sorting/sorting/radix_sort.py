@@ -1,8 +1,8 @@
 import sys
 sys.path.append("..")
 
-from sorting.counting_sort import counting_sort
-from helpers.max import get_max
+from profq_sorting.sorting.counting_sort import counting_sort
+from profq_sorting.helpers.max import get_max
 
 def radix_sort(arr: list) -> list:
     """Sort a list using radix sort

@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from sorting.quick_sort import quick_sort
+from profq_sorting import quick_sort
 import random
 
 

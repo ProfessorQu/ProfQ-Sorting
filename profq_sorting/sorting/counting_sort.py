@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from helpers.max import get_max
+from profq_sorting.helpers.max import get_max
 
 
 def counting_sort(arr: list, max_value: int = None, place_value: int = None) -> list:
