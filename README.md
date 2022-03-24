@@ -51,7 +51,7 @@ My implementation for bucket sort can only handle values between 0 and 1. Bucket
 from profq_sorting import counting_sort
 ```
 
-Counting sort works by creating a table of each element in the array and then **counts** their occurrences. After that it does a cumulative sum to figure out what each elements index is. After that it loops over the array and each time an item comes up it adds it to the output array at the index calculated and then subtracts one from that index.
+Counting sort works by creating a table of each element in the array and then **counts** their occurrences. After that it does a cumulative sum to figure out what each elements index is. Then it loops over the array and each time an item comes up it adds it to the output array at the index calculated and then subtracts one from that index.
 
 ### Insertion Sort
 
@@ -109,9 +109,9 @@ from profq_sorting import timsort
 
 This algorithm is really complicated and it took me a couple of days to wrap my head around so don't feel the need to understand it right away [Gaurav Sen](https://www.youtube.com/c/GauravSensei) made a [great series](https://www.youtube.com/playlist?list=PLMCXHnjXnTntLcLmA5SqhMspm7burHi3m) about Timsort and I highly suggest you to check it out.
 
-What it does is it seperates the array into runs and sorts each run using insertion sort, then it merges the runs back into one big array. It sounds really simple, but I can assure you it's not.
+What it does is it seperates the array into runs and sorts each run using [insertion sort](#insertion-sort), then it [merges](#merge-sort) the runs back into one big array using the merge function from merge sort. It's a hybrid sorting algortithm. And I know sounds really simple, but I can assure you it's not.
 
-Btw it's named timsort because [**Tim**](https://en.wikipedia.org/wiki/Tim_Peters_(software_engineer)) invented it in 2002 actually.
+P.S. it's named timsort because [**Tim**](https://en.wikipedia.org/wiki/Tim_Peters_(software_engineer)) invented it in 2002 actually.
 
 ## Conclusion
 
