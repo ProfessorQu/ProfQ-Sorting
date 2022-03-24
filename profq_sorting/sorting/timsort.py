@@ -105,15 +105,20 @@ def merge(arr: list, left: int, middle: int, right: int):
 def timsort(arr: list):
     size = len(arr)
 
+    # Calculate the minimum run size
     min_run = calc_minrun(size)
 
+    # Sort each run using insertion sort
     for start in range(0, size, min_run):
         end = min(start + min_run - 1, size - 1)
         insertion_sort(arr, start, end)
-        
+    
+    # Start merging from size run (or 32)
+    # It will merge to form 64, then 128, 256 and so on...
     run_size = min_run
     while run_size < size:
-        for left in range(0, size, 2 * size):
+        # Get the starting point of left sub array
+        for left in range(0, size, 2 * run_size):
             # Calculate the middle
             # Get the minimum between the last array index and the left index + the run size
             middle = min(size - 1, left + run_size - 1)
