@@ -13,6 +13,7 @@ def bubble_sort(arr: list) -> list:
     # Loop over the entire list
     for _ in range(1, size):
         # Loop over the list to swap the items
+        # Basically loop in pairs
         for j in range(0, size - 1):
             # Swap items if the current selected is greater than the next
             if arr[j] > arr[j + 1]:

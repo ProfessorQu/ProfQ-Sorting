@@ -9,7 +9,7 @@ def selection_sort(arr: list) -> list:
     """
     size = len(arr)
 
-    # Loop over entire array
+    # Loop over entire array except the last element
     for j in range(size - 1):
         # Set the current minimum index to j
         iMin = j

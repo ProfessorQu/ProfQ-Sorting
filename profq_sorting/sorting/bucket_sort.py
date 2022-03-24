@@ -30,9 +30,6 @@ def bucket_sort(arr: list) -> list:
 
     for i in range(slot_num):
         output.extend(buckets[i])
-        # for item_index in range(len(buckets[i])):
-        #     arr[k] = buckets[i][item_index]
-        #     k += 1
 
     return output
     
