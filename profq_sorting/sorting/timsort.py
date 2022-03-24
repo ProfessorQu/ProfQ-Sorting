@@ -102,7 +102,7 @@ def merge(arr: list, left: int, middle: int, right: int):
         r_index += 1
 
 
-def timsort(arr: list):
+def timsort(arr: list) -> list:
     size = len(arr)
 
     # Calculate the minimum run size
@@ -133,3 +133,5 @@ def timsort(arr: list):
                 merge(arr, left, middle, right)
 
         run_size = 2 * run_size
+    
+    return arr

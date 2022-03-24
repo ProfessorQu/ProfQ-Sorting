@@ -1,4 +1,4 @@
-def shell_sort(arr: list):
+def shell_sort(arr: list) -> list:
     """Sort a list using shell sort
 
     Args:
@@ -45,3 +45,5 @@ def shell_sort(arr: list):
 
         # Make gap smaller
         gap //= 2
+
+    return arr

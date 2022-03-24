@@ -1,4 +1,4 @@
-def insertion_sort(arr: list):
+def insertion_sort(arr: list) -> list:
     """Sort a list using insertion sort
 
     Args:
@@ -26,3 +26,5 @@ def insertion_sort(arr: list):
         
         # Set the key to the position before the sorted element
         arr[j + 1] = key
+    
+    return arr

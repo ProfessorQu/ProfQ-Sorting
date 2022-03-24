@@ -1,4 +1,4 @@
-def selection_sort(arr: list):
+def selection_sort(arr: list) -> list:
     """Sort a list using selection sort
 
     Args:
@@ -24,3 +24,5 @@ def selection_sort(arr: list):
         # Swap the minimum and the first element in the unsorted array
         if iMin != j:
             arr[j], arr[iMin] = arr[iMin], arr[j]
+    
+    return arr

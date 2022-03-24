@@ -1,4 +1,5 @@
 from profq_sorting.sorting.bubble_sort import bubble_sort
+from profq_sorting.sorting.bucket_sort import bucket_sort
 from profq_sorting.sorting.counting_sort import counting_sort
 from profq_sorting.sorting.insertion_sort import insertion_sort
 from profq_sorting.sorting.merge_sort import merge_sort

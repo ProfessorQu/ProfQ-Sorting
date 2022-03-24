@@ -1,4 +1,4 @@
-def bubble_sort(arr: list):
+def bubble_sort(arr: list) -> list:
     # sourcery skip: remove-zero-from-range, use-itertools-product
     """Sort a list using bubble sort
 
@@ -18,3 +18,5 @@ def bubble_sort(arr: list):
             if arr[j] > arr[j + 1]:
                 # Swap
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    
+    return arr
